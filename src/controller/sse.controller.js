@@ -19,13 +19,15 @@ function* arrayGen(data) {
 function sendDataAtIntervals(res, gen, interval) {
   const interval$ = setInterval(() => {
     const data = gen.next().value;
-    console.log(data);
 
     if (data) {
+      console.log("next project data sent :: ", data?.name);
+
       res.write(`event: project-detail\n`);
       res.write(`data: ${JSON.stringify([data])}`);
       res.write(`\n\n`);
     } else {
+      console.log("closestream");
       res.write(`event: closestream\n`);
       res.write(`data: null`);
       res.write(`\n\n`);
@@ -75,5 +77,5 @@ export function fetchProjectDataSSE(req, res) {
 
   projectDataSse.on('closestream', onClosestreamFired);
 
-  projectDataSse.on('error', () => {});
+  projectDataSse.on('error', () => { });
 }
