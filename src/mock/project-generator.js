@@ -45,8 +45,8 @@ export const PROJECT_DUMMY = Array.from(Array(NUMBER_OF_PROJECTS).keys()).map(
     proj.links = [];
     for (let i = 1; i < proj.sprints.length; i++) {
       const link = {
-        source: proj.sprints[i].id,
-        target: proj.sprints[i - 1].id,
+        source: proj.sprints[i -1].id,
+        target: proj.sprints[i ].id,
         type: 0,
       };
       proj.links.push(link);
