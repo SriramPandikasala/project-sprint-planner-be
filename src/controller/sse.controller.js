@@ -23,7 +23,7 @@ function sendDataAtIntervals(res, gen, interval) {
 
     if (data) {
       res.write(`event: project-detail\n`);
-      res.write(`data: ${JSON.stringify(data)}`);
+      res.write(`data: ${JSON.stringify([data])}`);
       res.write(`\n\n`);
     } else {
       res.write(`event: closestream\n`);
