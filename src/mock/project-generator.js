@@ -18,7 +18,6 @@ function dynamicId() {
 
 function addDate(ipDate, offsetDate) {
   const date =  new Date(ipDate.getTime() + convertDaysToMilliseconds(offsetDate));
-  console.log(ipDate, offsetDate,date)
   return date 
 }
 
@@ -38,7 +37,7 @@ export const PROJECT_DUMMY = Array.from(Array(NUMBER_OF_PROJECTS).keys()).map(
   (eachProjIndex) => {
     const proj = {
       id: `${dynamicId()}`,
-      name: `project-${eachProjIndex}`,
+      name: `project-${eachProjIndex + 1}`,
     };
 
     const projStartDate = new Date(randStartDate());
@@ -59,7 +58,7 @@ export const PROJECT_DUMMY = Array.from(Array(NUMBER_OF_PROJECTS).keys()).map(
       // console.log(currSprintInfo)
       const currSprint =  {
         id: `${dynamicId()}`,
-        name: `sprint-${eachSprintIndex}`,
+        name: `sprint-${eachSprintIndex + 1} `,
         startDate: `${currSprintInfo.startDate.toISOString()}`,
         duration: `${currSprintInfo.duration}`,
       };
